@@ -22,9 +22,9 @@ et la logique. Et de me concentrer sur la version 1.
 J'ai fais un Use-Case pour le Morpion mais je ne sais pas ce qu'il faut vraiment mettre dans un Use-Case en Front 
 Si possible réaborber brièvement cette partie là 
 
-La Première Version sera donc composé d'un morpion, avec un joueur1 et un joueur2 sur un ordinateur en commun ####
-La partie se jouera en 5 matchs et les points seront calculés au fur et à mesure ####
-En cas d'égalité, il est possible que quelques tours soit ajoutés tant qu'il n'y a plus d'égalité ####
-Si j'ai le temps j'intègrerai des parties en 10 matchs ####
-L'idéal serait de pouvoir alterner les débuts de tours entre les deux joueurs ####
+La Première Version sera donc composé d'un morpion, avec un joueur1 et un joueur2 sur un ordinateur en commun  ####
+La partie se jouera en 5 matchs et les points seront calculés au fur et à mesure  ####
+En cas d'égalité, il est possible que quelques tours soit ajoutés tant qu'il n'y a plus d'égalité  ####
+Si j'ai le temps j'intègrerai des parties en 10 matchs  ####
+L'idéal serait de pouvoir alterner les débuts de tours entre les deux joueurs  ####
 Sur la board du jeu il pourra avoir la possibilité de retourner au menu ou encore de rejouer la partie ####
