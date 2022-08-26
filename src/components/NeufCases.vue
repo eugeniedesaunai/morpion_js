@@ -1,15 +1,17 @@
 <template>
     <article class="parent">
         <!-- revoir pour faire un for  -->
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div1"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div2"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div3"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div4"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div5"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div6"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div7"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div8"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div9"></CaseMorpion>
+        <CaseMorpion v-for="i in 9" :key=i :data-value=i @click="chacunSonTour" :joueurActuel='pion'
+            class=" div1 couleurBase">
+        </CaseMorpion>
+        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div2 couleurBase"></CaseMorpion>
+        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div3 couleurBase"></CaseMorpion>
+        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div4 couleurBase"></CaseMorpion>
+        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div5 couleurBase"></CaseMorpion>
+        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div6 couleurBase"></CaseMorpion>
+        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div7 couleurBase"></CaseMorpion>
+        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div8 couleurBase"></CaseMorpion>
+        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div9 couleurBase"></CaseMorpion>
         <div v-if="joueurActuel.length == 0"> {{ premierJoueur }}</div>
         <div v-if="joueurActuel.length > 1"> {{ joueurSuivant }}</div>
     </article>
@@ -25,7 +27,7 @@ export default {
             joueursSymbole: ['x', 'o'],
             pion: 'x',
             joueurActuel: "",
-            combinaisonGagnante: [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
+            combinaisonGagnante: [123, 456, 789, 147, 258, 369, 159, 357]
         }
     },
     props: {
@@ -76,87 +78,48 @@ export default {
     grid-row-gap: 2px;
 }
 
+.couleurBase {
+    background-color: #ADACB5;
+}
+
+.couleurBase:hover {
+    background-color: #EAE8FF
+}
 
 .div1 {
-    background-color: #ADACB5;
     grid-area: 1 / 1 / 2 / 2;
 }
 
-.div1:hover {
-    background-color: #EAE8FF;
-}
-
 .div2 {
-    background-color: #EAE8FF;
     grid-area: 1 / 2 / 2 / 3;
 }
 
-.div2:hover {
-    background-color: #ADACB5;
-}
-
 .div3 {
-    background-color: #ADACB5;
     grid-area: 1 / 3 / 2 / 4;
 }
 
-.div3:hover {
-    background-color: #EAE8FF;
-}
-
 .div4 {
-    background-color: #EAE8FF;
     grid-area: 2 / 1 / 3 / 2;
 }
 
-.div4:hover {
-    background-color: #ADACB5;
-}
-
 .div5 {
-
-    background-color: #ADACB5;
     grid-area: 2 / 2 / 3 / 3;
 }
 
-.div5:hover {
-    background-color: #EAE8FF;
-}
-
 .div6 {
-    background-color: #EAE8FF;
     grid-area: 2 / 3 / 3 / 4;
 }
 
-.div6:hover {
-    background-color: #ADACB5;
-}
-
 .div7 {
-    background-color: #ADACB5;
     grid-area: 3 / 1 / 4 / 2;
 }
 
-.div7:hover {
-    background-color: #EAE8FF;
-}
-
 .div8 {
-    background-color: #EAE8FF;
     grid-area: 3 / 2 / 4 / 3;
 }
 
-.div8:hover {
-    background-color: #ADACB5;
-}
-
 .div9 {
-    background-color: #ADACB5;
     grid-area: 3 / 3 / 4 / 4;
-}
-
-.div9:hover {
-    background-color: #EAE8FF;
 }
 
 @media(min-width: 768px) {
@@ -165,11 +128,3 @@ export default {
     }
 }
 </style>
-<!-- 123
-456
-789
-147
-258
-369
-159
-357 -->

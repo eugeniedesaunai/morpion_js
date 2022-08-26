@@ -38,10 +38,6 @@ h1 {
   margin: 0;
 }
 
-main {
-  background-color: #F2F4F3;
-}
-
 .padding {
   padding: 2vw;
 }
