@@ -11,8 +11,14 @@
 export default {
   name: 'AccueilMorpion',
   props: {
-
-  }
+    step: ''
+  },
+  /*   methods: {
+      jouer() {
+        this.step++
+        this.$emit('jouer', this.step);
+      }
+    }, */
 }
 </script>
 

@@ -1,11 +1,11 @@
 <template>
     <section class="texteCenter flexColumn">
         <article class="flexColumn">
-            <label for="premierJoueur">Nom du Joueur 1 : {{ premierJoueur }}</label>
+            <label for="premierJoueur">Nom du premier joueur : {{ premierJoueur }}</label>
             <input class="marginText" type="text" name="" id="premierJoueur" v-model="premierJoueur">
         </article>
         <article class="flexColumn">
-            <label for="deuxiemeJoueur">Nom du Joueur 2 : {{ deuxiemeJoueur }}</label>
+            <label for="deuxiemeJoueur">Nom du deuxième joueur : {{ deuxiemeJoueur }}</label>
             <input class="marginText" type="text" name="" id="deuxiemeJoueur" v-model="deuxiemeJoueur">
         </article>
         <input class="designBoutton" type="submit" value="Prêt" v-if="joueursPret" @click="submit">
@@ -17,8 +17,8 @@ export default {
     name: "ChoixJoueurs",
     data() {
         return {
-            premierJoueur: "",
-            deuxiemeJoueur: "",
+            premierJoueur: "tululu",
+            deuxiemeJoueur: "lalalala",
         }
     },
     computed: {

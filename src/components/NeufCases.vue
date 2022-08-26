@@ -1,17 +1,10 @@
 <template>
     <article class="parent">
-        <!-- revoir pour faire un for  -->
-        <CaseMorpion v-for="i in 9" :key=i :data-value=i @click="chacunSonTour" :joueurActuel='pion'
-            class=" div1 couleurBase">
+        <!-- revoir pour faire un for  :data-value=i -->
+        <CaseMorpion v-for="i in 9" :key="i" :data-value='i' :joueurActuel='pion' @submit="chacunSonTour(i)"
+            class="couleurBase">
         </CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div2 couleurBase"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div3 couleurBase"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div4 couleurBase"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div5 couleurBase"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div6 couleurBase"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div7 couleurBase"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div8 couleurBase"></CaseMorpion>
-        <CaseMorpion @click="chacunSonTour" :joueurActuel='pion' class="div9 couleurBase"></CaseMorpion>
+
         <div v-if="joueurActuel.length == 0"> {{ premierJoueur }}</div>
         <div v-if="joueurActuel.length > 1"> {{ joueurSuivant }}</div>
     </article>
@@ -25,9 +18,12 @@ export default {
         return {
             tours: '',
             joueursSymbole: ['x', 'o'],
-            pion: 'x',
+            pion: 'o',
             joueurActuel: "",
-            combinaisonGagnante: [123, 456, 789, 147, 258, 369, 159, 357]
+            combinaisonGagnante: [[1, 2, 3], [4, 5, 6], [7, 8, 9],
+            [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]],
+            valeurPremierJoueur: [],
+            valeurDeuxiemeJoueur: [],
         }
     },
     props: {
@@ -35,7 +31,6 @@ export default {
     },
     computed: {
         premierJoueur() {
-
             return this.joueurs[0] + " commence"
         },
         joueurSuivant() {
@@ -44,22 +39,35 @@ export default {
 
     },
     methods: {
-        chacunSonTour() {
+        // fonction qui attribu aux joueurs un nombre paire ou impaire correspondant à un symbole, s'alternant au click
+        // récupérer dans un tableau la data de chaques cases dés qu'un joueur clique sur une case
+        chacunSonTour(numeroCase) {
+
             if ((this.tours % 2 == 1)) {
-                this.pion = this.joueursSymbole[0]
-                this.joueurActuel = this.joueurs[0]
-                this.tours++
-                console.log(this.pion, this.tours, this.joueurs[0])
-            }
-            else {
                 this.pion = this.joueursSymbole[1]
                 this.joueurActuel = this.joueurs[1]
-                this.tours++
-                console.log(this.pion, this.tours, this.joueurs[1])
+                this.valeurDeuxiemeJoueur.push(numeroCase)
+                console.log(this.pion, this.tours, this.joueurs[1], this.valeurDeuxiemeJoueur)
+
             }
+            else {
+                this.pion = this.joueursSymbole[0]
+                this.joueurActuel = this.joueurs[0]
+                this.valeurPremierJoueur.push(numeroCase)
+
+                console.log(this.pion, this.tours, this.joueurs[0], this.valeurPremierJoueur)
+            }
+            this.tours++
+
+            this.quiGagne()
         },
 
+        //comparer le tableau des combinaisons gagnantes avec les tableaux joueurs 
+        quiGagne() {
+
+        },
     },
+
     components: {
         CaseMorpion,
     }
@@ -84,42 +92,6 @@ export default {
 
 .couleurBase:hover {
     background-color: #EAE8FF
-}
-
-.div1 {
-    grid-area: 1 / 1 / 2 / 2;
-}
-
-.div2 {
-    grid-area: 1 / 2 / 2 / 3;
-}
-
-.div3 {
-    grid-area: 1 / 3 / 2 / 4;
-}
-
-.div4 {
-    grid-area: 2 / 1 / 3 / 2;
-}
-
-.div5 {
-    grid-area: 2 / 2 / 3 / 3;
-}
-
-.div6 {
-    grid-area: 2 / 3 / 3 / 4;
-}
-
-.div7 {
-    grid-area: 3 / 1 / 4 / 2;
-}
-
-.div8 {
-    grid-area: 3 / 2 / 4 / 3;
-}
-
-.div9 {
-    grid-area: 3 / 3 / 4 / 4;
 }
 
 @media(min-width: 768px) {

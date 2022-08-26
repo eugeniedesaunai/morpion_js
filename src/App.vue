@@ -29,6 +29,10 @@ export default {
       this.joueurs.push(nomJoueur)
       if (this.joueurs.length == 2) this.step++
     }
+    /*     jouer(step) {
+          this.step.push(step)
+          if (this.joueurs.length == 2) this.step++
+        } */
   },
 
 }
@@ -72,7 +76,7 @@ body {
 }
 
 @media(min-width: 768px) {
-  .designButton {
+  .designBoutton {
     margin-left: 15rem;
     margin-right: 15rem;
     height: 6vh;
@@ -80,7 +84,7 @@ body {
 }
 
 @media(min-width: 1024px) {
-  .designButton {
+  .designBoutton {
     margin-left: 28rem;
     margin-right: 28rem;
     height: 8vh;
