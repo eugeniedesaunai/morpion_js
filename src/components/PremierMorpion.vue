@@ -1,38 +1,38 @@
 <template>
-  <main class="width">
-    <h1 class="texteCenter">Morpion {{ scorePremierJoueur }}</h1>
-    <section class="spaceAround flex padding">
-      <NeufCases @score="score" :joueurs="joueurs">
-      </NeufCases>
-      <ReglesMorpion> </ReglesMorpion>
+  <Push>
+    <ReglesMorpion> </ReglesMorpion>
+  </Push>
+  <main class="tailleMax flexColumn " id="page-wrap">
+    <h1 class="texteCenter neon">Morpion</h1>
+    <section class="spaceAround padding flexColumn texteCenter">
+      <PlancheJeu :joueurs="joueurs">
+      </PlancheJeu>
+      <JoueursPoints @click="retourAccueil"></JoueursPoints>
     </section>
-    <JoueursPoints @submit="submit" @click="retourAccueil" :joueurs="joueurs">
-    </JoueursPoints>
   </main>
 </template>
 
 <script>
-import NeufCases from './NeufCases.vue';
 import ReglesMorpion from './ReglesMorpion.vue';
 import JoueursPoints from './JoueursPoints.vue';
+import { Push } from 'vue3-burger-menu';
+import PlancheJeu from './PlancheJeu.vue';
 
 export default {
   name: "PremierMorpion",
   data() {
     return {
-      current_player: 0,
     }
   },
   props: {
     joueurs: Array,
   },
-  components: { NeufCases, ReglesMorpion, JoueursPoints },
+  components: { ReglesMorpion, Push, PlancheJeu, JoueursPoints },
   methods: {
     retourAccueil() {
       this.$emit('retourAccueil')
     },
     submit() { },
-    score() { },
   },
 }
 </script>
@@ -44,21 +44,32 @@ export default {
 }
 
 h1 {
-  margin: 0;
+  font-size: 50px !important;
+  margin: 0 !important;
+  margin-top: 0.5rem !important;
+  margin-left: 0.9em !important;
+  color: #f07171;
+  text-shadow: 0px 0px 10px #f07171;
+}
+
+section {
+  height: 100vh;
 }
 
 .padding {
   padding: 2vw;
 }
 
-.width {
-  width: 100vw;
-}
 
 @media(min-width: 768px) {
   .spaceAround {
     display: flex;
     justify-content: space-around;
+  }
+
+  h1 {
+    font-size: 85px !important;
+    margin: 0 !important;
   }
 }
 </style>

@@ -15,7 +15,7 @@ export default {
   name: 'App',
   data() {
     return {
-      step: 2,
+      step: 1,
       joueurs: []
     }
   },
@@ -44,20 +44,6 @@ export default {
 </script>
 
 <style>
-.texteCenter {
-  text-align: center;
-}
-
-.tailleMax {
-  width: 100vw;
-  height: 100vh;
-}
-
-.flexColumn {
-  display: flex;
-  flex-direction: column;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -71,9 +57,48 @@ body {
   background: #333;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap');
+
+.neon {
+  font-family: 'Neonderthaw', cursive;
+
+}
+
+.alumi {
+  font-family: 'Alumni Sans Pinstripe', sans-serif;
+
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  color: #ddd3e1;
+  font-family: 'Alumni Sans Pinstripe', sans-serif;
+  color: #e5c7e2;
+  font-size: 2rem;
+}
+
+
+.texteCenter {
+  text-align: center;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.tailleMax {
+  width: 100vw;
+  height: 100vh;
+}
+
+.spaceAround {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /*  bouton */
@@ -90,21 +115,25 @@ body {
 }
 
 .designBoutton {
+  text-transform: uppercase;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 1.5rem;
   margin-left: 6rem;
   margin-right: 6rem;
-  height: 4vh;
+  height: 6vh;
   cursor: url('./img/morpion.png'), pointer;
   background: #333;
   border: none;
   box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444, inset -5px -5px 10px #222;
   color: #222;
-  font-size: 16px;
 }
 
 .designBoutton:hover {
   box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222, inset -5px -5px 10px #444;
-  font-size: 15px;
+  font-size: 1.8rem;
   transition: 500ms;
 }
 
@@ -122,7 +151,7 @@ body {
   .designBoutton {
     margin-left: 15rem;
     margin-right: 15rem;
-    height: 6vh;
+    height: 7vh;
   }
 }
 

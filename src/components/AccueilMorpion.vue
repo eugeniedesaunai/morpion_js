@@ -1,17 +1,21 @@
 <template>
-  <section class=" spaceAround tailleMax">
+  <Push>
+    <ReglesMorpion></ReglesMorpion>
+  </Push>
+  <section id="page-wrap" class=" spaceAround tailleMax">
     <img class="tailleImg" src="../img/morpion.png" alt="">
     <input class="designBoutton texteCenter red" type="button" value="Jouer" @click="morpion">
-    <ReglesMorpion> </ReglesMorpion>
   </section>
 
 </template>
 
 <script>
+import { Push } from 'vue3-burger-menu'
 import ReglesMorpion from './ReglesMorpion.vue'
+
 export default {
   name: 'AccueilMorpion',
-  components: { ReglesMorpion },
+  components: { ReglesMorpion, Push },
   props: {
 
   },

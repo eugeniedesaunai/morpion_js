@@ -1,12 +1,14 @@
 <template>
     <section class="texteCenter flexColumn">
-        <article class="flexColumn">
+        <article class="flexColumn alumi">
             <label for="premierJoueur">Nom du premier joueur : {{ premierJoueur }}</label>
-            <input class="marginText" type="text" name="" id="premierJoueur" v-model="premierJoueur">
+            <input class="marginText designBoutton texteCenter" type="text" name="" id="premierJoueur"
+                v-model="premierJoueur">
         </article>
-        <article class="flexColumn">
-            <label for="deuxiemeJoueur">Nom du deuxième joueur : {{ deuxiemeJoueur }}</label>
-            <input class="marginText" type="text" name="" id="deuxiemeJoueur" v-model="deuxiemeJoueur">
+        <article class="flexColumn alumi">
+            <label for="deuxiemeJoueur ">Nom du deuxième joueur : {{ deuxiemeJoueur }}</label>
+            <input class="marginText designBoutton texteCenter" type="text" name="" id="deuxiemeJoueur"
+                v-model="deuxiemeJoueur">
         </article>
         <input class="designBoutton" type="submit" value="Prêt" v-if="joueursPret" @click="submit">
     </section>
@@ -17,8 +19,8 @@ export default {
     name: "ChoixJoueurs",
     data() {
         return {
-            premierJoueur: "tululu",
-            deuxiemeJoueur: "lalalala",
+            premierJoueur: "",
+            deuxiemeJoueur: "",
         }
     },
     computed: {
@@ -46,6 +48,8 @@ section {
 
 .marginText {
     margin: 2em;
+    color: #f07171;
+    text-shadow: 0px 0px 10px #f07171;
 }
 
 .marginSubmit {

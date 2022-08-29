@@ -1,7 +1,7 @@
 <template>
-    <article>
+    <article class="menu">
         <h2 class="texteCenter ">Règles</h2>
-        <ol class="spaceAround flexColumn paddingRegles">
+        <ul class="spaceAround flexColumn paddingRegles">
             <li>Jeu qui se joue à deux joueurs, sur un damier de 3 cases par 3 cases.</li>
             <li>Chaque joueur est représenté par un "symbole"</li>
             <li>Un joueur utilise toujours le même type de "symbole"</li>
@@ -13,7 +13,7 @@
             <li>Si la grille est remplie et qu'aucune ligne ne comporte trois symboles identiques, les joueurs finissent
                 par
                 un match nul.</li>
-        </ol>
+        </ul>
     </article>
 </template>
 
@@ -28,6 +28,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+ul {
+    list-style: none;
+}
+
+.menu {
+    display: contents;
+    padding: 1em;
+}
+
 @media(min-width: 768px) {
     .paddingRegles {
         padding: 3rem;

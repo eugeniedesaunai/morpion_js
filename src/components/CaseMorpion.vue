@@ -1,5 +1,5 @@
 <template>
-    <div class="texteCenter" @click="chacunSonTour"> {{ pion }}</div>
+    <div class="texteCenter neon" @click="chacunSonTour"> {{ pion }}</div>
 </template>
 
 <script>
@@ -13,14 +13,14 @@ export default {
     },
     props: {
         joueurActuel: String,
-        resultat: String
+        resultat: String,
+        finish: Boolean
     },
 
     methods: {
         chacunSonTour() {
-
             console.log(this.resultat);
-            if (this.pion.length < 1 && this.resultat != "joueur 1 a gagné" && this.resultat != "joueur 2 a gagné") {
+            if (this.pion.length < 1 && this.finish == false) {
                 this.pion = this.joueurActuel
                 this.$emit('submit', this.pion);
 
@@ -34,7 +34,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 div {
+
     font-size: 4rem;
+    color: #f07171;
+    text-shadow: 0px 0px 10px #f07171;
 }
 
 @media(min-width: 768px) {
@@ -43,11 +46,15 @@ div {
         margin-right: 15rem;
         height: 6vh;
     }
+
+    div {
+        font-size: 5rem;
+    }
 }
 
 @media(min-width: 1024px) {
     div {
-        font-size: 8rem;
+        font-size: 6rem;
     }
 }
 </style>

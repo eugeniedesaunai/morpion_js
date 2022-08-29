@@ -1,12 +1,20 @@
 <template>
-    <article class="parent">
+    <article class="neufCases">
         <!-- revoir pour faire un for  :data-value=i -->
-        <CaseMorpion v-for="i in 9" :key="i" :data-value='i' :joueurActuel='pion' :resultat="resultat" @click="score"
+        <CaseMorpion v-for="i in 9" :key="i" :data-value='i' :joueurActuel='pion' :resultat='resultat' :finish='finish'
             @submit="chacunSonTour(i)" class="couleurBase">
         </CaseMorpion>
-        <div>{{ scorePremierJoueur }}</div>
+    </article>
+    <article class="texteIndicatif alumi">
         <div v-if="joueurActuel.length == 0"> {{ premierJoueur }} </div>
-        <div v-if="joueurActuel.length > 1"> {{ joueurSuivant }}</div>
+        <div v-else-if="joueurActuel.length > 1 && !finish"> {{ joueurSuivant }}</div>
+        <div v-if="resultat.length > 1"> {{ resultat }}</div>
+    </article>
+    <article class="spaceAround ">
+        <p class="indicateur indicateurJoueur texteCenter">{{ joueurs[0] }}</p>
+        <p class="indicateur indicateurPoint texteCenter">{{ scorePremierJoueur }}</p>
+        <p class="indicateur indicateurJoueur texteCenter">{{ joueurs[1] }}</p>
+        <p class="indicateur indicateurPoint texteCenter">{{ scoreDeuxiemeJoueur }} </p>
     </article>
 </template>
 
@@ -26,8 +34,8 @@ export default {
             valeurDeuxiemeJoueur: [],
             resultat: "",
             scorePremierJoueur: 0,
-            scoreDeuxiemeJoueur: 0
-
+            scoreDeuxiemeJoueur: 0,
+            finish: false
         }
     },
     props: {
@@ -44,10 +52,7 @@ export default {
 
     },
     methods: {
-        score() {
-            this.$emit('score', this.scorePremierJoueur)
-            this.$emit('score', this.scoreDeuxiemeJoueur)
-        },
+
         // fonction qui attribu aux joueurs un nombre paire ou impaire correspondant à un symbole, s'alternant au click
         // récupérer dans un tableau la data de chaques cases dés qu'un joueur clique sur une case
         chacunSonTour(numeroCase) {
@@ -110,9 +115,11 @@ export default {
                             }
                         }
                     }
-                    this.resultat = "joueur 1 a gagné";
+                    this.resultat = this.joueurs[0] + " a gagné";
                     this.scorePremierJoueur++
+                    this.finish = true
                 }
+
                 if (result2) {
                     let cases = document.querySelectorAll(".couleurBase")
 
@@ -124,14 +131,15 @@ export default {
                             }
                         }
                     }
-                    this.resultat = "joueur 2 a gagné";
+                    this.resultat = this.joueurs[1] + " a gagné";
                     this.scoreDeuxiemeJoueur++
+                    this.finish = true
                 }
-
             })
-        },
-    },
 
+        },
+
+    },
     components: {
         CaseMorpion,
     }
@@ -140,14 +148,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.parent {
-    width: 95vw;
-    height: 50vh;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 2px;
-    grid-row-gap: 2px;
+.texteIndicatif {
+    color: #f07171;
+    text-shadow: 0px 0px 10px #f07171;
 }
 
 .couleurBase {
@@ -158,17 +161,53 @@ export default {
     background-color: #EAE8FF
 }
 
-@media(min-width: 768px) {
-    .parent {
-        height: 70vh;
-    }
-}
-
 .black {
-    background-color: black;
+    background-color: #444;
 }
 
 .red {
-    background-color: red;
+    background-color: #222;
+}
+
+.indicateur {
+    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444, inset -5px -5px 10px #222;
+    color: #f07171;
+    text-shadow: 0px 0px 10px #f07171;
+    border-radius: 1.5rem;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.indicateurJoueur {
+    width: 25vw;
+    padding: 1vw;
+
+}
+
+.indicateurPoint {
+    width: 15vw;
+    padding: 1vw;
+}
+
+.neufCases {
+    width: 95vw;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
+}
+
+@media(min-width: 768px) {
+    .neufCases {
+        width: 55vw;
+        height: 55vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 </style>
