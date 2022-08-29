@@ -154,11 +154,11 @@ export default {
 }
 
 .couleurBase {
-    background-color: #ADACB5;
+    background-color: #6a6869;
 }
 
 .couleurBase:hover {
-    background-color: #EAE8FF
+    background-color: #ADACB5;
 }
 
 .black {
