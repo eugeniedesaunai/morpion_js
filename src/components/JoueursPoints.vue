@@ -1,10 +1,10 @@
 <template>
     <section class="spaceAround ">
         <p class="color indicateurJoueur texteCenter">{{ joueurs[0] }}</p>
-        <p class="color indicateurPoint texteCenter">point joueur 1</p>
+        <p class="color indicateurPoint texteCenter">{{ scorePremierJoueur }}</p>
         <p class="color indicateurJoueur texteCenter">{{ joueurs[1] }}</p>
-        <p class="color indicateurPoint texteCenter">point joueur 2</p>
-        <p class="color indicateurJoueur texteCenter"> Retour Menu</p>
+        <p class="color indicateurPoint texteCenter"> {{ scoreDeuxiemeJoueur }}</p>
+        <input class=" designBoutton indicateurJoueur texteCenter" type="button" value="Retour Accueil">
     </section>
 </template>
 
@@ -12,8 +12,13 @@
 export default {
     name: 'JoueursPoints',
     props: {
-        joueurs: Array
+        joueurs: Array,
+        scorePremierJoueur: Number,
+        scoreDeuxiemeJoueur: Number
     },
+    methods: {
+
+    }
 }
 
 </script>

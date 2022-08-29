@@ -1,7 +1,7 @@
 <template>
-  <AccueilMorpion v-if="step == 1" />
+  <AccueilMorpion v-if="step == 1" @morpion="jouer" />
   <ChoixJoueurs v-if="step == 2" @submit="majJoueurs" />
-  <PremierMorpion v-if="step == 3" :joueurs="joueurs" />
+  <PremierMorpion v-if="step == 3" :joueurs="joueurs" @retourAccueil="jeuAccueil" />
 
 
 </template>
@@ -22,17 +22,22 @@ export default {
   components: {
     AccueilMorpion,
     PremierMorpion,
-    ChoixJoueurs
+    ChoixJoueurs,
   },
   methods: {
     majJoueurs(nomJoueur) {
       this.joueurs.push(nomJoueur)
       if (this.joueurs.length == 2) this.step++
+      console.log(this.step)
+    },
+    jouer() {
+      this.step++
+      console.log(this.step)
+    },
+    jeuAccueil() {
+      this.step = this.step - 2
+      console.log(this.step)
     }
-    /*     jouer(step) {
-          this.step.push(step)
-          if (this.joueurs.length == 2) this.step++
-        } */
   },
 
 }
@@ -41,12 +46,6 @@ export default {
 <style>
 .texteCenter {
   text-align: center;
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  color: #2D3142;
-
 }
 
 .tailleMax {
@@ -59,21 +58,65 @@ export default {
   flex-direction: column;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #F2F4F3;
   width: 100vw;
   height: 100vh;
   margin: 0;
+  background: #333;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: #ddd3e1;
+}
+
+/*  bouton */
+
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .designBoutton {
-  background-color: #2D3142;
-  color: #D8D5DB;
   border-radius: 1.5rem;
   margin-left: 6rem;
   margin-right: 6rem;
   height: 4vh;
+  cursor: url('./img/morpion.png'), pointer;
+  background: #333;
+  border: none;
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444, inset -5px -5px 10px #222;
+  color: #222;
+  font-size: 16px;
 }
+
+.designBoutton:hover {
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222, inset -5px -5px 10px #444;
+  font-size: 15px;
+  transition: 500ms;
+}
+
+.designBoutton:focus {
+  outline: none;
+}
+
+.designBoutton:hover {
+  color: #f07171;
+  text-shadow: 0px 0px 10px #f07171;
+}
+
 
 @media(min-width: 768px) {
   .designBoutton {

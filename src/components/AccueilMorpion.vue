@@ -1,24 +1,27 @@
 <template>
-  <section class="texteCenter spaceAround tailleMax">
-    <input class="designBoutton" type="button" value="Morpion 1">
-    <input class="designBoutton" type="button" value="Règles">
+  <section class=" spaceAround tailleMax">
+    <img class="tailleImg" src="../img/morpion.png" alt="">
+    <input class="designBoutton texteCenter red" type="button" value="Jouer" @click="morpion">
+    <ReglesMorpion> </ReglesMorpion>
   </section>
 
 </template>
 
 <script>
-
+import ReglesMorpion from './ReglesMorpion.vue'
 export default {
   name: 'AccueilMorpion',
+  components: { ReglesMorpion },
   props: {
-    step: ''
+
   },
-  /*   methods: {
-      jouer() {
-        this.step++
-        this.$emit('jouer', this.step);
-      }
-    }, */
+  methods: {
+
+    morpion() {
+      this.$emit('morpion')
+    }
+
+  },
 }
 </script>
 
@@ -28,5 +31,24 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.tailleImg {
+  width: 50vw;
+  align-self: center;
+}
+
+@media(min-width: 768px) {
+  .tailleImg {
+    width: 40vw;
+    align-self: center;
+  }
+}
+
+@media(min-width: 1024px) {
+  .tailleImg {
+    width: 30vw;
+    align-self: center;
+  }
 }
 </style>

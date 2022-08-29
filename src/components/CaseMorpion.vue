@@ -13,13 +13,17 @@ export default {
     },
     props: {
         joueurActuel: String,
+        resultat: String
     },
 
     methods: {
         chacunSonTour() {
-            if (this.pion.length < 1) {
+
+            console.log(this.resultat);
+            if (this.pion.length < 1 && this.resultat != "joueur 1 a gagné" && this.resultat != "joueur 2 a gagné") {
                 this.pion = this.joueurActuel
                 this.$emit('submit', this.pion);
+
             }
         }
 

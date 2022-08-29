@@ -1,11 +1,13 @@
 <template>
   <main class="width">
-    <h1 class="texteCenter">Morpion</h1>
+    <h1 class="texteCenter">Morpion {{ scorePremierJoueur }}</h1>
     <section class="spaceAround flex padding">
-      <NeufCases :joueurs="joueurs"></NeufCases>
-      <ReglesMorpion></ReglesMorpion>
+      <NeufCases @score="score" :joueurs="joueurs">
+      </NeufCases>
+      <ReglesMorpion> </ReglesMorpion>
     </section>
-    <JoueursPoints :joueurs="joueurs"></JoueursPoints>
+    <JoueursPoints @submit="submit" @click="retourAccueil" :joueurs="joueurs">
+    </JoueursPoints>
   </main>
 </template>
 
@@ -24,7 +26,14 @@ export default {
   props: {
     joueurs: Array,
   },
-  components: { NeufCases, ReglesMorpion, JoueursPoints }
+  components: { NeufCases, ReglesMorpion, JoueursPoints },
+  methods: {
+    retourAccueil() {
+      this.$emit('retourAccueil')
+    },
+    submit() { },
+    score() { },
+  },
 }
 </script>
 
