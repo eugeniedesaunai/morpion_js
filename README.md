@@ -11,7 +11,7 @@ Rappel des règles Morpion V1:
 6 - Si la grille est remplie et qu'aucune ligne ne comporte trois symboles identiques, les joueurs finissent par un match nul.
 
 Les deux wareframes réaliser en amont du projet : 
-![Alt text](./src/img/wireframe_ordinateur.png"Wireframe ordinateur") 
+![Alt text](./src/img/wireframe_ordinateur.png "Wireframe ordinateur") 
 ![Alt text](./src/img/wireframe_telephone.png "Wireframe téléphone") 
 
 J'ai choisi de rester sur un design simple afin de me concentrer principalement sur le code 
@@ -28,3 +28,7 @@ En cas d'égalité, il est possible que quelques tours soit ajoutés tant qu'il 
 Si j'ai le temps j'intègrerai des parties en 10 matchs  
 L'idéal serait de pouvoir alterner les débuts de tours entre les deux joueurs  
 Sur la board du jeu il pourra avoir la possibilité de retourner au menu ou encore de rejouer la partie  
+
+
+PB:  
+Lors du retour Accueil depuis la page de jeux, impossible de repasser la page choix du joueur vers page de jeux  
