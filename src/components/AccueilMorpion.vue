@@ -4,7 +4,7 @@
   </Push>
   <section id="page-wrap" class=" spaceAround tailleMax">
     <img class="tailleImg" src="../img/morpion.png" alt="">
-    <input class="designBoutton texteCenter red" type="button" value="Jouer" @click="morpion">
+    <input class="designBoutton texteCenter red clignote" type="button" value="Jouer" @click="morpion">
   </section>
 
 </template>
@@ -40,6 +40,18 @@ export default {
 .tailleImg {
   width: 50vw;
   align-self: center;
+}
+
+.clignote {
+  color: #f07171;
+  text-shadow: 0px 0px 10px #f07171;
+  animation: clignote 3s linear infinite;
+}
+
+@keyframes clignote {
+  50% {
+    opacity: 0;
+  }
 }
 
 @media(min-width: 768px) {

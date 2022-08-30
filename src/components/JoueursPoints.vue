@@ -1,6 +1,6 @@
 <template>
 
-    <input class=" designBoutton texteCenter" type="button" value="Retour Accueil">
+    <input class=" designBoutton texteCenter" type="button" value="Accueil">
 
 
 </template>

@@ -6,15 +6,15 @@
         </CaseMorpion>
     </article>
     <article class="texteIndicatif alumi">
-        <div v-if="joueurActuel.length == 0"> {{ premierJoueur }} </div>
-        <div v-else-if="joueurActuel.length > 1 && !finish"> {{ joueurSuivant }}</div>
-        <div v-if="resultat.length > 1"> {{ resultat }}</div>
+        <div v-if="joueurActuel.length == 0"> {{  premierJoueur  }} </div>
+        <div v-else-if="joueurActuel.length > 1 && !finish"> {{  joueurSuivant  }}</div>
+        <div v-if="resultat.length > 1"> {{  resultat  }}</div>
     </article>
     <article class="spaceAround ">
-        <p class="indicateur indicateurJoueur texteCenter">{{ joueurs[0] }}</p>
-        <p class="indicateur indicateurPoint texteCenter">{{ scorePremierJoueur }}</p>
-        <p class="indicateur indicateurJoueur texteCenter">{{ joueurs[1] }}</p>
-        <p class="indicateur indicateurPoint texteCenter">{{ scoreDeuxiemeJoueur }} </p>
+        <p class="indicateur indicateurJoueur texteCenter">{{  joueurs[0]  }}</p>
+        <p class="indicateur indicateurPoint texteCenter">{{  scorePremierJoueur  }}</p>
+        <p class="indicateur indicateurJoueur texteCenter">{{  joueurs[1]  }}</p>
+        <p class="indicateur indicateurPoint texteCenter">{{  scoreDeuxiemeJoueur  }} </p>
     </article>
 </template>
 
@@ -75,7 +75,7 @@ export default {
         },
         //comparer le tableau des combinaisons gagnantes avec les tableaux joueurs en convertissant en string afin de 
         //pouvoir utiliser le include
-        // changer la couleur des cases en cas de combinaison gagnante
+        // changer la couleur des cases en cas de combinaison gagnante en sélectionant les cases et leurs rajoutants une classe
         quiGagne() {
             /*           if (this.valeurPremierJoueur.includes(1)) {
                           if (this.valeurPremierJoueur.includes(2)) {
@@ -111,7 +111,7 @@ export default {
                         for (let y = 0; y < tabCombinaison.length; y++) {
 
                             if (tabCombinaison[y] == cases[i].getAttribute("data-value")) {
-                                cases[i].classList.add("black");
+                                cases[i].classList.add("grisClair");
                             }
                         }
                     }
@@ -127,7 +127,7 @@ export default {
                         for (let y = 0; y < tabCombinaison.length; y++) {
 
                             if (tabCombinaison[y] == cases[i].getAttribute("data-value")) {
-                                cases[i].classList.add("red");
+                                cases[i].classList.add("grisFonce");
                             }
                         }
                     }
@@ -149,7 +149,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .texteIndicatif {
-    color: #f07171;
+    color: #e5c7e2;
+    padding-top: 1rem;
+    padding-bottom: 0.6rem;
     text-shadow: 0px 0px 10px #f07171;
 }
 
@@ -161,11 +163,11 @@ export default {
     background-color: #ADACB5;
 }
 
-.black {
+.grisClair {
     background-color: #444;
 }
 
-.red {
+.grisFonce {
     background-color: #222;
 }
 

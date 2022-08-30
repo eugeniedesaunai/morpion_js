@@ -74,6 +74,22 @@ body {
   font-family: 'Alumni Sans Pinstripe', sans-serif;
   color: #e5c7e2;
   font-size: 2rem;
+  cursor: url(./img/cursor1.png), pointer;
+}
+
+/* menu */
+
+.bm-burger-bars {
+  background-color: #444;
+}
+
+.bm-cross {
+  background: #444;
+}
+
+.bm-overlay {
+  background: #222;
+  ;
 }
 
 
@@ -124,7 +140,8 @@ body {
   margin-left: 6rem;
   margin-right: 6rem;
   height: 6vh;
-  cursor: url('./img/morpion.png'), pointer;
+  cursor: url(./img/cursor1.png), pointer;
+
   background: #333;
   border: none;
   box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444, inset -5px -5px 10px #222;
@@ -157,9 +174,10 @@ body {
 
 @media(min-width: 1024px) {
   .designBoutton {
-    margin-left: 28rem;
-    margin-right: 28rem;
-    height: 8vh;
+    margin-left: 20rem;
+    margin-right: 20rem;
+    margin-top: 1rem;
+    height: 7vh;
   }
 }
 </style>

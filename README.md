@@ -29,6 +29,19 @@ Si j'ai le temps j'intègrerai des parties en 10 matchs
 L'idéal serait de pouvoir alterner les débuts de tours entre les deux joueurs  
 Sur la board du jeu il pourra avoir la possibilité de retourner au menu ou encore de rejouer la partie  
 
+EXTENSION:  
+Burger Menu Vue 3 : https://www.npmjs.com/package/vue-burger-menu  
 
 PB:  
 Lors du retour Accueil depuis la page de jeux, impossible de repasser la page choix du joueur vers page de jeux  
+A revoir comment envoyer une variable qui se modifie d'un enfant à un parent, afin de le renvoyer à un autre enfant  
+  
+A AMELIORER:  
+Pouvoir rejouer  
+MAJ points joueurs  
+Faire les différentes possibilités de tours  
+Mettre en place le router  
+Revoir le design  
+Revoir le menu des règles  
+Refactoriser le CSS  
+Revoir Curseur en SVG pour modifier couleur  
