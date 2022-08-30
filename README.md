@@ -38,6 +38,7 @@ A revoir comment envoyer une variable qui se modifie d'un enfant à un parent, a
   
 A AMELIORER:  
 Pouvoir rejouer  
+Mode Aléatoire   
 MAJ points joueurs  
 Faire les différentes possibilités de tours  
 Mettre en place le router  
