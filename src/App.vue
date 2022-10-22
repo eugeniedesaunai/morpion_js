@@ -28,15 +28,13 @@ export default {
     majJoueurs(nomJoueur) {
       this.joueurs.push(nomJoueur)
       if (this.joueurs.length == 2) this.step++
-      console.log(this.step)
+
     },
     jouer() {
       this.step++
-      console.log(this.step)
     },
     jeuAccueil() {
       this.step = this.step - 2
-      console.log(this.step)
     }
   },
 
@@ -87,6 +85,14 @@ body {
   background: #444;
 }
 
+.cross-style {
+  cursor: url(./img/cursor1.png), pointer;
+}
+
+.bm-burger-button {
+  cursor: url(./img/cursor1.png), pointer;
+}
+
 .bm-overlay {
   background: #222;
   ;
@@ -115,6 +121,10 @@ body {
 .wrap {
   display: flex;
   flex-wrap: wrap;
+}
+
+.hidden{
+  visibility: hidden;
 }
 
 /*  bouton */

@@ -16,6 +16,9 @@
         <p class="indicateur indicateurJoueur texteCenter">{{  joueurs[1]  }}</p>
         <p class="indicateur indicateurPoint texteCenter">{{  scoreDeuxiemeJoueur  }} </p>
     </article>
+       <article> 
+    <button> Rejouer</button>
+    </article>
 </template>
 
 <script>
@@ -61,14 +64,11 @@ export default {
                 this.pion = this.joueursSymbole[0]
                 this.joueurActuel = this.joueurs[0]
                 this.valeurDeuxiemeJoueur.push(numeroCase)
-                console.log(this.pion, this.tours, this.joueurs[1], this.valeurDeuxiemeJoueur)
-
             }
             else {
                 this.pion = this.joueursSymbole[1]
                 this.joueurActuel = this.joueurs[1]
                 this.valeurPremierJoueur.push(numeroCase)
-                console.log(this.pion, this.tours, this.joueurs[0], this.valeurPremierJoueur)
             }
             this.tours++
             this.quiGagne()
@@ -77,24 +77,6 @@ export default {
         //pouvoir utiliser le include
         // changer la couleur des cases en cas de combinaison gagnante en sélectionant les cases et leurs rajoutants une classe
         quiGagne() {
-            /*           if (this.valeurPremierJoueur.includes(1)) {
-                          if (this.valeurPremierJoueur.includes(2)) {
-                              if (this.valeurPremierJoueur.includes(3)) {
-                                  this.valeurPremierJoueur = this.joueurs[0]
-                                  this.scorePremierJoueur++
-                                  console.log(this.joueurs[0] + " a gagné", this.scorePremierJoueur)
-                              }
-                          }
-                      }
-                      if (this.valeurDeuxiemeJoueur.includes(1)) {
-                          if (this.valeurDeuxiemeJoueur.includes(2)) {
-                              if (this.valeurDeuxiemeJoueur.includes(3)) {
-                                  this.valeurDeuxiemeJoueur = this.joueurs[1]
-                                  this.scoreDeuxiemeJoueur++
-                                  console.log(this.joueurs[1] + " a gagné", this.scoreDeuxiemeJoueur)
-                              }
-                          }
-                      } */
 
             this.combinaisonGagnante.forEach(tabCombinaison => {
                 let joueur1String = this.valeurPremierJoueur.join(" ");

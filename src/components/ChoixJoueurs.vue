@@ -10,7 +10,8 @@
             <input class="marginText designBoutton texteCenter" type="text" name="" id="deuxiemeJoueur"
                 v-model="deuxiemeJoueur">
         </article>
-        <input class="designBoutton" type="submit" value="Prêt" v-if="joueursPret" @click="submit">
+        <input class="designBoutton" type="submit" value="Prêt" @click="submit">
+        <div class="popUpJoueur hidden"> Veuillez indiquer le nom des deux joueurs</div>
     </section>
 </template>
 
@@ -30,8 +31,17 @@ export default {
     },
     methods: {
         submit() {
+            if (this.premierJoueur.length > 0 && this.deuxiemeJoueur.length > 0) {
             this.$emit('submit', this.premierJoueur);
             this.$emit('submit', this.deuxiemeJoueur);
+            }
+            else{
+            let popUpJoueur = document.querySelector('.popUpJoueur');
+            popUpJoueur.classList.remove("hidden");
+/*             setTimeout(() => {
+                popUpJoueur.classList.add("hidden");
+            }, 10000); */
+      }
         }
     },
 }
@@ -57,11 +67,29 @@ section {
     margin-right: 5em;
 }
 
+.popUpJoueur{
+    position: absolute;
+    background-color: #f07171;
+    color: #6a6869;
+    width: 50%;
+    height: auto;
+    top: 2%;
+    left: 2%;
+    border-radius: 2rem;
+    font-size: 1rem;
+    padding:1rem;
+}
+
 @media(min-width: 768px) {
     .marginText {
         margin: 2em;
         margin-left: 9em;
         margin-right: 9em;
+    }
+
+    .popUpJoueur{
+         width: 40%;
+font-size: 1.5rem;
     }
 }
 
@@ -70,6 +98,11 @@ section {
         margin: 2em;
         margin-left: 10em;
         margin-right: 10em;
+    }
+
+    .popUpJoueur{
+         width: 30%;
+font-size: 1.5rem;
     }
 }
 </style>

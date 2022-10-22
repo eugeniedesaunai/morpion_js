@@ -19,11 +19,9 @@ export default {
 
     methods: {
         chacunSonTour() {
-            console.log(this.resultat);
             if (this.pion.length < 1 && this.finish == false) {
                 this.pion = this.joueurActuel
                 this.$emit('submit', this.pion);
-
             }
         }
 
