@@ -15,7 +15,7 @@ export default {
   name: 'App',
   data() {
     return {
-      step: 1,
+      step: 2,
       joueurs: []
     }
   },

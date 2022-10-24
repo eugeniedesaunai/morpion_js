@@ -1,8 +1,8 @@
 <template>
     <article class="neufCases">
         <!-- revoir pour faire un for  :data-value=i -->
-        <CaseMorpion v-for="i in 9" :key="i" :data-value='i' :joueurActuel='pion' :resultat='resultat' :finish='finish'
-            @submit="chacunSonTour(i)" class="couleurBase">
+        <CaseMorpion v-for="i in 9" :key="i" :data-value='i' :joueurActuel='pion' :finish='finish'
+            @submit="chacunSonTour(i)" class="couleurBase" ">
         </CaseMorpion>
     </article>
     <article class="texteIndicatif alumi">
@@ -17,7 +17,7 @@
         <p class="indicateur indicateurPoint texteCenter">{{  scoreDeuxiemeJoueur  }} </p>
     </article>
        <article> 
-    <button> Rejouer</button>
+    <button  @click="rejouer"> Rejouer</button>
     </article>
 </template>
 
@@ -28,6 +28,7 @@ export default {
     data() {
         return {
             tours: 0,
+            round: 1,
             joueursSymbole: ['x', 'o'],
             pion: 'x',
             joueurActuel: "",
@@ -120,6 +121,10 @@ export default {
             })
 
         },
+
+        rejouer(){
+            this.pion = "";
+        }
 
     },
     components: {
